@@ -8,11 +8,15 @@ import bookImage4 from "@/assets/images/book-cover4.png"
 import bookImage5 from "@/assets/images/book-cover5.png"
 import Image from "next/image";
 import JavascriptIcon from "@/assets/icons/square-js.svg"
-import HTMLIcon from "@/assets/icons/html5.svg"
-import CssIcon from "@/assets/icons/css3.svg"
+import NETCoreIcon from "@/assets/icons/.NET-core.svg"
+import PostgresIcon from "@/assets/icons/PostgresSQL.svg"
 import ReactIcon from "@/assets/icons/react.svg"
-import ChromeIcon from "@/assets/icons/chrome.svg"
+import NextIcon from "@/assets/icons/Next.js.svg"
 import GithubIcon from "@/assets/icons/github.svg"
+import TypescriptIcon from "@/assets/icons/TypeScript.svg"
+import DockerIcon from "@/assets/icons/Docker.svg"
+import AzureIcon from "@/assets/icons/Azure.svg"
+import TailwindIcon from "@/assets/icons/Tailwind-CSS.svg"
 import mapImage from "@/assets/images/map.png"
 import smileMemoji from "@/assets/images/memoji-smile.png"
 import { CardHeader } from "@/components/CardHeader";
@@ -23,29 +27,48 @@ import { useRef, useState } from "react";
 
 const toolboxItems = [
   {
-    title: 'JavaScript',
-    iconType: JavascriptIcon,
+    title: '.NET', 
+    iconType: NETCoreIcon,
   },
   {
-    title: 'HTML5', //.NET
-    iconType: HTMLIcon,
+    title: 'Next.js',
+    iconType: NextIcon,
   },
   {
-    title: 'CSS3', //Postgres
-    iconType: CssIcon,
+    title: 'Postgres', 
+    iconType: PostgresIcon,
   },
   {
     title: 'React',
     iconType: ReactIcon,
   },
   {
-    title: 'Chrome', //Docker
-    iconType: ChromeIcon,
+    title: 'JavaScript',
+    iconType: JavascriptIcon,
+    iconClassName: 'rounded-lg overflow-hidden',
+  },
+  {
+    title: 'TypeScript',
+    iconType: TypescriptIcon,
+    iconClassName: 'rounded-lg overflow-hidden',
+  },
+  {
+    title: 'Tailwind CSS',
+    iconType: TailwindIcon,
   },
   {
     title: 'GitHub',
     iconType: GithubIcon,
   },
+  {
+    title: 'Docker',
+    iconType: DockerIcon,
+  },
+  {
+    title: 'Azure',
+    iconType: AzureIcon,
+  },
+  
 ]
 
 const hobbies = [
@@ -126,11 +149,11 @@ export const AboutSection = () => {
   return (
     <section id="about" className="py-20 lg:py-28 scroll-mt-24">
       <div className="container">
-        <SectionHeader eyebrow="About me" title="A Glimpse Into My World" description="Learn more about who I am, what I do, and what inspires me." />
+        <SectionHeader eyebrow="About me" title="A Glimpse Into My World" description="A glimpse into the interests, routines, and technologies that shape what I do." />
         <div className="mt-20 flex flex-col gap-8">
           <div className="grid grid-cols-1 gap-8 md:grid md:grid-cols-5 lg:grid-cols-3">
             <Card className="h-[320px] md:col-span-2 lg:col-span-1">
-              <CardHeader title="My Reads" description="Explore the books shaping my perspectives." />
+              <CardHeader title="My Reads" description="Books that influence my perspective." />
 
               <div className="w-40 mx-auto mt-2 md:mt-0 relative" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
                 <Image src={bookImages[currentBookIndex]} alt="Book cover" />
@@ -164,7 +187,7 @@ export const AboutSection = () => {
               </div>
             </Card>
             <Card className="h-[320px] md:col-span-3 lg:col-span-2">
-              <CardHeader title="My Toolbox" description="Explore the technologies and tools I use to create exceptional digital experiences."
+              <CardHeader title="My Toolbox" description="Explore the technologies and tools I use to create scalable software solutions."
                 className="" />
 
               <ToolboxItems items={toolboxItems} className="" itemsWrapperClassName="animate-move-left [animation-duration:30s]" />

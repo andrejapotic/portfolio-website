@@ -7,6 +7,7 @@ export const ToolboxItems = ({ items, className, itemsWrapperClassName }: {
     items: {
         title: string;
         iconType: React.ElementType;
+        iconClassName?: string;
     }[];
     className?: string;
     itemsWrapperClassName?: string;
@@ -19,7 +20,7 @@ export const ToolboxItems = ({ items, className, itemsWrapperClassName }: {
                     <Fragment key={index}>
                         {items.map(item => (
                             <div key={item.title} className="inline-flex items-center gap-4 py-2 px-3 outline outline-2 outline-white/10 rounded-lg">
-                                <TechIcon component={item.iconType} />
+                                <TechIcon component={item.iconType} className={item.iconClassName} />
                                 <span className="font-semibold">{item.title}</span>
                             </div>
                         ))}

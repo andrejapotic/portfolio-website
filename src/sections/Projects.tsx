@@ -10,15 +10,15 @@ import { Card } from "@/components/Card";
 
 const portfolioProjects = [
   {
-    company: "Acme Corp",
-    year: "2022",
-    title: "Dark Saas Landing Page",
+    company: "Metropolitan University",
+    year: "2026",
+    title: "Online University Course Editor",
     results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
+      { title: "5x more responsive than predecesor" },
+      { title: "Lecture creation time reduced by 75%" },
+      { title: "Loss of progress incidents reduced to minimum" },
     ],
-    link: "https://youtu.be/4k7IdSLxh6w",
+    link: "https://nextjs-university-lecture-creator.vercel.app/",
     image: darkSaasLandingPage,
   },
   {
@@ -28,22 +28,10 @@ const portfolioProjects = [
     results: [
       { title: "Average lecture quality increased by 25%" },
       { title: "Improved application speed by 50%" },
-      { title: "Web components migrated to WebView2" },
+      { title: "Lead migration of components to WebView2" },
     ],
     link: "",
     image: lightSaasLandingPage,
-  },
-  {
-    company: "Quantum Dynamics",
-    year: "2023",
-    title: "AI Startup Landing Page",
-    results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
-    ],
-    link: "https://youtu.be/Z7I5uSRHMHg",
-    image: aiStartupLandingPage,
   },
 ];
 
@@ -90,7 +78,7 @@ export const ProjectsSection = () => {
                   ) : (
                     <a href={project.link}>
                       <button className="bg-white text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8">
-                        <span>Visit Live Site</span>
+                        <span>Visit Live Demo</span>
                         <ArrowUpRightIcon className="size-4" />
                       </button>
                     </a>
