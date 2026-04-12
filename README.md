@@ -1,47 +1,40 @@
-## Andreja Potic Portfolio Website
+#  📌My Portfolio Website
 
-Personal portfolio website for developer Andreja Potic, built with Next.js, Tailwind CSS, and Framer Motion.
+Repository that hosts my portfolio website avaliable at <a href="https://www.andrejapotic.com">andrejapotic.com</a>
 
-## Getting Started
-
-Install dependencies and start the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Scripts
-
-- `npm run dev` starts the local development server
-- `npm run build` creates a production build
-- `npm run start` runs the production build locally
-- `npm run lint` runs linting
-
-## Tech Stack
+## ✨Technologies
 
 - Next.js
-- React
-- Tailwind CSS
+- Tailwind
 - Framer Motion
+- Cloudflare Turnstile
+- Vercel
 
-## Project Notes
+## 🚀Features
 
-- The app entry point is `src/app/page.tsx`.
-- Shared metadata is defined in `src/app/layout.tsx`.
-- Portfolio sections live under `src/sections`.
+- Interactive header section
+- Contact form with CAPCHA
+- Responsive design for mobile, tablet and desktop
 
-## Deployment
+## 📍The process
 
-The site can be deployed on any platform that supports Next.js, including Vercel.
+My goal for this project was: Easy to read and get relevant information + Looks beautiful without being overwhelming.
 
-## Repository
+The hardest part of this entire project was the UI. When most of your work is done on the backend, and frontend is very structured and minimal, you realize how demanding good and responsive design actually is.
 
-GitHub: https://github.com/andrejapotic/portfolio-website
+After finding adequate inspiration, and adding my personal touch, it was a really enjoyable and easy going project.
+
+I used Next.js instead of plain HTML + CSS + JavaScript, because I wanted the ability to quickly add new content using the components I created. Also Vercel proved to be amazing at publishing this type of app.
+
+## 🚦Running the project
+
+1. Clone the repository to your machine.
+2. Open the project folder in your terminal.
+3. Install dependencies with `npm install`.
+4. Start the backend `func start`.
+5. Start the frontend with `npm run dev`
+
+## 🎬Preview
+<video src="https://github.com/user-attachments/assets/04f3e57d-6786-4b23-b2d5-bc3e41e56555.mp4" width="600" controls>
+  Your browser does not support the video tag.
+</video>
