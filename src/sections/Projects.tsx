@@ -1,6 +1,6 @@
 import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
 import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
-import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
+import absenceSyncPage from "@/assets/images/absence-sync-page.png";
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg"
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg"
@@ -24,7 +24,7 @@ const portfolioProjects = [
   {
     company: "Metropolitan University",
     year: "2022-2026",
-    title: "Lecture editor - mDita Editor",
+    title: "Lecture editor - mDita",
     results: [
       { title: "Average lecture quality increased by 25%" },
       { title: "Improved application speed by 50%" },
@@ -32,6 +32,18 @@ const portfolioProjects = [
     ],
     link: "",
     image: lightSaasLandingPage,
+  },
+  {
+    company: "Contract",
+    year: "2026",
+    title: "Travel Agency System - Booking and Management",
+    results: [
+      { title: "Employee management streamlined (Demo available)" },
+      { title: "Automated reporting reduced manual work by 75%" },
+      { title: "Replaced legacy booking system" },
+    ],
+    link: "https://ashy-dune-0516fae10.7.azurestaticapps.net",
+    image: absenceSyncPage,
   },
 ];
 
@@ -76,7 +88,7 @@ export const ProjectsSection = () => {
                       </button>
                     </a>
                   ) : (
-                    <a href={project.link}>
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
                       <button className="bg-white text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8">
                         <span>Visit Live Demo</span>
                         <ArrowUpRightIcon className="size-4" />
