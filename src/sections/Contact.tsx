@@ -40,6 +40,8 @@ const initialValues: FormValues = {
 
 const FORMSPREE_FORM_ID = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID?.trim() ?? "";
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim() ?? "";
+const TURNSTILE_MIN_WIDTH = 300;
+const TURNSTILE_HEIGHT = 65;
 
 const getFormspreeEndpoint = (value: string) => {
   if (!value) {
@@ -88,6 +90,8 @@ export const ContactSection = () => {
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [submitMessage, setSubmitMessage] = useState("");
   const [isTurnstileReady, setIsTurnstileReady] = useState(false);
+  const [turnstileScale, setTurnstileScale] = useState(1);
+  const turnstileViewportRef = useRef<HTMLDivElement | null>(null);
   const turnstileContainerRef = useRef<HTMLDivElement | null>(null);
   const turnstileWidgetIdRef = useRef<string | null>(null);
 
@@ -115,6 +119,37 @@ export const ContactSection = () => {
     }
     setTurnstileToken("");
   };
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !turnstileViewportRef.current) {
+      return;
+    }
+
+    const viewport = turnstileViewportRef.current;
+    const updateScale = () => {
+      const nextScale = Math.min(1, viewport.clientWidth / TURNSTILE_MIN_WIDTH);
+      setTurnstileScale((currentScale) => (
+        Math.abs(currentScale - nextScale) < 0.01 ? currentScale : nextScale
+      ));
+    };
+
+    updateScale();
+
+    if (typeof ResizeObserver === "undefined") {
+      window.addEventListener("resize", updateScale);
+
+      return () => {
+        window.removeEventListener("resize", updateScale);
+      };
+    }
+
+    const resizeObserver = new ResizeObserver(updateScale);
+    resizeObserver.observe(viewport);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
     if (
@@ -355,7 +390,23 @@ export const ContactSection = () => {
                   </label>
                   <div className="mt-2 rounded-xl border border-gray-900/15 bg-white px-3 py-3">
                     {isTurnstileConfigured ? (
-                      <div id="turnstile-widget" ref={turnstileContainerRef} />
+                      <div
+                        ref={turnstileViewportRef}
+                        className="w-full overflow-hidden"
+                        style={{
+                          height: turnstileScale < 1 ? `${TURNSTILE_HEIGHT * turnstileScale}px` : undefined,
+                        }}
+                      >
+                        <div
+                          style={turnstileScale < 1 ? {
+                            width: `${TURNSTILE_MIN_WIDTH}px`,
+                            transform: `scale(${turnstileScale})`,
+                            transformOrigin: "top left",
+                          } : undefined}
+                        >
+                          <div id="turnstile-widget" ref={turnstileContainerRef} />
+                        </div>
+                      </div>
                     ) : (
                       <p className="text-sm text-gray-700">
                         Add your Turnstile site key to enable verification.

@@ -3,6 +3,7 @@ import ArrowDown from "@/assets/icons/arrow-down.svg"
 import grainImage from "@/assets/images/grain.jpg"
 import profileImage from "@/assets/images/profile.png"
 import StarIcon from "@/assets/icons/star.svg"
+import GitHubIcon from "@/assets/icons/github.svg"
 import { HeroOrbit } from "@/components/HeroOrbit";
 import SparkleIcon from "@/assets/icons/sparkle.svg"
 
@@ -79,11 +80,13 @@ export const HeroSection = () => {
             <ArrowDown className="size-4" />
           </a>
           <a
-            href="#contact"
+            href="https://github.com/andrejapotic"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl"
           >
-            <span>&#128075;</span>
-            <span className="font-semibold">Let&apos;s Connect</span>
+            <GitHubIcon className="size-5" />
+            <span className="font-semibold">GitHub</span>
           </a>
         </div>
       </div>

@@ -38,8 +38,8 @@ const portfolioProjects = [
     year: "2026",
     title: "Travel Agency System - Booking and Management",
     results: [
-      { title: "Employee management streamlined (Demo available)" },
-      { title: "Automated reporting reduced manual work by 75%" },
+      { title: "Absence management (Demo available)" },
+      { title: "Reduced manual work by 75%" },
       { title: "Replaced legacy booking system" },
     ],
     link: "https://ashy-dune-0516fae10.7.azurestaticapps.net",
@@ -81,7 +81,7 @@ export const ProjectsSection = () => {
                       </li>
                     ))}
                   </ul>
-                  {project.title === "Lecture editor - mDita Editor" ? (
+                  {project.title === "Lecture editor - mDita" ? (
                     <a href={project.link}>
                       <button className="bg-gray-400 text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8" disabled>
                         <span>Internal Project</span>
